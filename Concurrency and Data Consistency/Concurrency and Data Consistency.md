@@ -46,10 +46,8 @@ BEGIN TRANSACTION;
 SELECT * FROM employees WHERE salary >= 50000;
 COMMIT;
 
---In this example, transaction 1 can still see the uncommitted data from 
-transaction 2 as the tranaction is performed in Uncommitted Read.
---This happens because the database system does not use any locks or 
-read-consistent mechanisms to prevent Read Uncommitted.
+--In this example, transaction 1 can still see the uncommitted data from transaction 2 as the tranaction is performed in Uncommitted Read.
+--This happens because the database system does not use any locks or read-consistent mechanisms to prevent Read Uncommitted.
 --This means that RU will not prevent Dirty Read, Fuzzy Read or Phantom Read
 ```
 
@@ -70,10 +68,8 @@ BEGIN TRANSACTION;
 SELECT * FROM employees WHERE salary >= 50000;
 COMMIT;
 
---In this example, transaction 1 can not see the uncommitted data from 
-transaction 2.
---This can prevent dirty read, however, fuzzy read and phantom read is still
-a problem.
+--In this example, transaction 1 can not see the uncommitted data from transaction 2.
+--This can prevent dirty read, however, fuzzy read and phantom read is stilla problem.
 ```
 
 
@@ -93,11 +89,8 @@ BEGIN TRANSACTION;
 UPDATE employees SET salary = salary + 10000 WHERE employee_id = 123;
 COMMIT;
 
---In this example, suppose the two transactions happen at the same time, 
-transaction 1 only read the unupdated data before transaction 2. This 
-is done via shared locks and other mechanisms.
---This will effectively eliminate fuzzy read and dirty read, however, phantom
-read where DELETE or INSERT statements involve is still a problem.
+--In this example, suppose the two transactions happen at the same time, transaction 1 only read the unupdated data before transaction 2. This is done via shared locks and other mechanisms.
+--This will effectively eliminate fuzzy read and dirty read, however, phantomread where DELETE or INSERT statements involve is still a problem.
 ```
 - **Serializable**: is the highest level of isolation, in which transactions are completely isolated from each other. This level provides the strongest guarantees of consistency and accuracy at the expense of lower concurrency.
 
@@ -116,13 +109,9 @@ UPDATE orders SET quantity = quantity + 1 WHERE product_id = 123 AND order_date 
 COMMIT;y + 10000 WHERE employee_id = 123;
 COMMIT;
 
---In this example, as two transactions are at the highest level of transaction, shared locks 
-and other mechanisms applied on the database prevent T2 from modifying any data that T1 is 
-reading and subsequently prevent T1 from reading any data that T2 is modifying.
--- In the end, when both transaction commit their changes, the database system releases all 
-the locks.
---This will mean that dirty read, fuzzy read and phantom read is no longer a problem in this
-level of isolation.
+--In this example, as two transactions are at the highest level of transaction, shared locks and other mechanisms applied on the database prevent T2 from modifying any data that T1 is reading and subsequently prevent T1 from reading any data that T2 is modifying.
+-- In the end, when both transaction commit their changes, the database system releases all the locks.
+--This will mean that dirty read, fuzzy read and phantom read is no longer a problem in thislevel of isolation.
 ```
 
 **NOTE**
