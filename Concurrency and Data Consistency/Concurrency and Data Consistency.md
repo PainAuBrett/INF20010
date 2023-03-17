@@ -142,6 +142,6 @@ This is because when high level of isolation is applied, more locks and other co
 
  3. **Use locking and other concurrency control mechanism judiciously:** Locking and other concurrency control mechanisms can help ensure data consistency and prevent conflicts, but they can also reduce concurrency.
 
- 4. **Optimize queries and transactions:**Optimizing queries and transactions can help reduce contention for resources and improve performance.
+ 4. **Optimize queries and transactions:** Optimizing queries and transactions can help reduce contention for resources and improve performance.
 
  5. **Consider using multi-version concurrency control (MVCC)**: MVCC is a concurrency control mechanism that allows multiple versions of a data item to exist at the same time, rather than using locks to prevent conflicts
