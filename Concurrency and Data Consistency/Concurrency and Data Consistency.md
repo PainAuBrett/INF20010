@@ -5,9 +5,11 @@
 
 ## Description:
 Concurrent problems in database refer to issues that can arise when **multiple transactions are accessing the same data concurrently**. These issues can lead to inconsistencies, conflicts, or errors in the data, and can affect the performance, reliability, and availability of the database system.
----
+
 ### **Common problems**
+---
 - **Data Inconsistency**: When **multiple transactions are accessing or modifying the sane data concurrently**, it can lead to inconsistencies in the data if the database is not configured to handle concurrency.
+---
 
 - **Deadlocks**: This refers to **the situation where two or more transactions are waiting for each other to release locks on data items** that they need to access or modify.
 
