@@ -7,15 +7,15 @@
 Concurrent problems in database refer to issues that can arise when **multiple transactions are accessing the same data concurrently**. These issues can lead to inconsistencies, conflicts, or errors in the data, and can affect the performance, reliability, and availability of the database system.
 
 ### **Common problems**
----
 - **Data Inconsistency**: When **multiple transactions are accessing or modifying the sane data concurrently**, it can lead to inconsistencies in the data if the database is not configured to handle concurrency.
----
 
 - **Deadlocks**: This refers to **the situation where two or more transactions are waiting for each other to release locks on data items** that they need to access or modify.
 
 - **Starvation**: occurs when a transaction is unable to acquire the locks it needs to access or modify data.
 
 - **Performance**: When multiple transactions are accessing the same data concurrently. it can lead to contention for resources such as disk I/O, memory, or CPU.
+
+---
 
 ### **Data Inconsistency**
 **Lost Update**: refers to the situation when one transaction overwrites the outcome of another transaction. This is a serious problem that will be detrimental to data integrity.
@@ -32,6 +32,8 @@ Concurrency problems can be overcome using **locking** which can be placed on Da
 **Locking** refers to the mechanism used to control access to data by multiple transactions or processes. A lock ensures that only one transaction can access or modify a data item at a time, preventing concurrent access or modification by other transactions.
 
 However, if ywo transaction may want to update the same database at the same time, one transaction will have to wait for another to complete, and this will slow down the transaction.
+
+---
 
 ### **Isolation**
 **Isolation** refers to the degree to which transactions are isolated from each other. Its levels determine how much one transaction can see the changes made by other transaction. There are 4 levels:
@@ -115,6 +117,8 @@ COMMIT;
 -- In the end, when both transaction commit their changes, the database system releases all the locks.
 --This will mean that dirty read, fuzzy read and phantom read is no longer a problem in thislevel of isolation.
 ```
+
+---
 
 **NOTE**
 
