@@ -31,7 +31,7 @@ Concurrency problems can be overcome using **locking** which can be placed on Da
 
 **Locking** refers to the mechanism used to control access to data by multiple transactions or processes. A lock ensures that only one transaction can access or modify a data item at a time, preventing concurrent access or modification by other transactions.
 
-However, if ywo transaction may want to update the same database at the same time, one transaction will have to wait for another to complete, and this will slow down the transaction.
+However, if two transaction may want to update the same database at the same time, one transaction will have to wait for another to complete, and this will slow down the transaction.
 
 ---
 
